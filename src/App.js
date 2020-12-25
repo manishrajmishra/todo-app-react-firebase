@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Todo from "./Todo.js";
 import "./styles.css";
 import { Button, FormControl, InputLabel, Input } from "@material-ui/core";
 const userName = prompt("What is your Name?");
@@ -39,7 +40,8 @@ export default function App() {
       </form>
       <ul>
         {todos.map((todo) => (
-          <li>{todo}</li>
+          <Todo text={todo} />
+          // <li>{todo}</li>
         ))}
       </ul>
     </div>
