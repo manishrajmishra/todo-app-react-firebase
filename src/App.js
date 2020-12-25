@@ -3,6 +3,7 @@ import Todo from "./Todo.js";
 import "./styles.css";
 import { Button, FormControl, InputLabel, Input } from "@material-ui/core";
 import db from "./firebase";
+import firebase from "firebase";
 
 const userName = prompt("What is your Name?");
 export default function App() {
@@ -12,16 +13,19 @@ export default function App() {
   //when app loads, we need to listen to the database and fetch new todos as they get added/removed
   useEffect(() => {
     //this code here fires when the app.js loads
-    db.collection("todos").onSnapshot((snapshot) => {
-      // console.log(snapshot.docs.map((doc) => doc.data()));
-      setTodos(snapshot.docs.map((doc) => doc.data().todo));
-    });
+    db.collection("todos")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) => {
+        // console.log(snapshot.docs.map((doc) => doc.data()));
+        setTodos(snapshot.docs.map((doc) => doc.data().todo));
+      });
   }, []);
 
   const addTodo = (event) => {
     event.preventDefault(); //do not refresh the page
     db.collection("todos").add({
-      todo: input
+      todo: input,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
     });
     setTodos([...todos, input]);
     setInput(""); //clear up the input after submiting
