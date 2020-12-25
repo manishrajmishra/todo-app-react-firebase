@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./styles.css";
+import Button from "@material-ui/core/Button";
 const userName = prompt("What is your Name?");
 export default function App() {
   const [todos, setTodos] = useState([
@@ -23,7 +24,15 @@ export default function App() {
           value={input}
           onChange={(event) => setInput(event.target.value)}
         />
-        <button onClick={addTodo}>Add Todo</button>
+        <Button
+          disabled={!input}
+          type="submit"
+          onClick={addTodo}
+          variant="contained"
+          color="primary"
+        >
+          Add Todo
+        </Button>
       </form>
       <ul>
         {todos.map((todo) => (
