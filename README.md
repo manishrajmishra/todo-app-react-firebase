@@ -1,2 +1,2 @@
-# todo-app-react-firebase
+# Quiz-React
 Created with CodeSandbox
