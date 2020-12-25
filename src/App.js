@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./styles.css";
-import Button from "@material-ui/core/Button";
+import { Button, FormControl, InputLabel, Input } from "@material-ui/core";
 const userName = prompt("What is your Name?");
 export default function App() {
   const [todos, setTodos] = useState([
@@ -20,10 +20,13 @@ export default function App() {
     <div className="App">
       <h1>Hello, {userName}</h1>
       <form>
-        <input
-          value={input}
-          onChange={(event) => setInput(event.target.value)}
-        />
+        <FormControl>
+          <InputLabel> ✅ Write a Todo</InputLabel>
+          <Input
+            value={input}
+            onChange={(event) => setInput(event.target.value)}
+          />
+        </FormControl>
         <Button
           disabled={!input}
           type="submit"
