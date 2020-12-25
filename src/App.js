@@ -10,14 +10,21 @@ export default function App() {
   const [input, setInput] = useState("");
 
   const addTodo = (event) => {
+    event.preventDefault(); //do not refresh the page
     setTodos([...todos, input]);
+    setInput(""); //clear up the input after submiting
   };
 
   return (
     <div className="App">
       <h1>Hello, {userName}</h1>
-      <input value={input} onChange={(event) => setInput(event.target.value)} />
-      <button onClick={addTodo}>Add Todo</button>
+      <form>
+        <input
+          value={input}
+          onChange={(event) => setInput(event.target.value)}
+        />
+        <button onClick={addTodo}>Add Todo</button>
+      </form>
       <ul>
         {todos.map((todo) => (
           <li>{todo}</li>
