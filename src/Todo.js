@@ -56,7 +56,6 @@ function Todo(props) {
       </Modal>
       <List>
         <ListItem>
-          {/* <ListItemAvatar></ListItemAvatar> */}
           <ListItemText
             style={{ paddingLeft: "450px" }}
             primary={props.todo.todo}
