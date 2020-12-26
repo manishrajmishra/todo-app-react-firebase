@@ -54,7 +54,7 @@ function Todo(props) {
           </Button>
         </div>
       </Modal>
-      <List className="todo_list">
+      <List>
         <ListItem>
           <ListItemAvatar></ListItemAvatar>
           <ListItemText
