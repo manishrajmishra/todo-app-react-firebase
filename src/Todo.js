@@ -6,7 +6,6 @@ import {
   ListItemAvatar
 } from "@material-ui/core";
 import db from "./firebase";
-import "./Todo.css";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import { Button, Modal, makeStyles } from "@material-ui/core";
 
