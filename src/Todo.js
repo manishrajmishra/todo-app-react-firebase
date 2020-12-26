@@ -11,7 +11,7 @@ import { Button, Modal, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    position: "absolute",
+    position: "center",
     width: 400,
     backgroundColor: theme.palette.background.paper,
     border: "2px solid #000",
@@ -44,15 +44,21 @@ function Todo(props) {
             value={input}
             onChange={(event) => setInput(event.target.value)}
           />
-          <Button onClick={updateTodo} variant="contained" color="primary">
+          <Button
+            disabled={!input}
+            onClick={updateTodo}
+            variant="contained"
+            color="primary"
+          >
             Update Todo
           </Button>
         </div>
       </Modal>
       <List>
         <ListItem>
-          <ListItemAvatar></ListItemAvatar>
+          {/* <ListItemAvatar></ListItemAvatar> */}
           <ListItemText
+            style={{ paddingLeft: "450px" }}
             primary={props.todo.todo}
             secondary="Dummy Deadline 
 ⏰"
