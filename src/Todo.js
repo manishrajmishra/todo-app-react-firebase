@@ -36,12 +36,7 @@ function Todo(props) {
 
   return (
     <>
-      <Modal
-        open={open}
-        onClose={(e) => setOpen(false)}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
-      >
+      <Modal open={open} onClose={(e) => setOpen(false)}>
         <div className={classes.paper}>
           <h1>Edit Todo</h1>
           <input
